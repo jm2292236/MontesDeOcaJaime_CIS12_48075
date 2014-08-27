@@ -27,6 +27,8 @@
 		echo "<p>Hours worked = $hours (hours)</p>";
 		echo '<p>Pay Rate = $$payRate</p>';
 		echo "<p>Pay Check = $".$grossPay.'</p>';
+		
+		// This is the last line
 	?>
     
 </body>
