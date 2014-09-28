@@ -30,7 +30,9 @@
   </tr>
 <?php
 	//For - Loop
-	for($angle=$angStrt;$angle<=$angEnd;$angle+=$angInc){
+	//for($angle=$angStrt;$angle<=$angEnd;$angle+=$angInc){
+	$angle=$angStrt;
+	while($angle<=$angEnd){
 		echo "<tr>";
 		echo "<td>$angle</td>";
 		//Calculate
@@ -43,7 +45,8 @@
 		echo "<td>$cosine</td>";
 		echo "<td>$tangent</td>";
 		echo "</tr>";
-	};;;;;;
+		$angle+=$angInc;
+	}
 ?>
 </table>
 </body>
