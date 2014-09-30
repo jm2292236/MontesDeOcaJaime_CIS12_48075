@@ -4,10 +4,10 @@
 		<?php
 			// Jaime Montes de Oca
 			// Sept 27, 2014
-			// Purpose: Output the Electromagnetic Spectrum Band in a table using arrays and then display the results.
+			// Purpose: Output the Electromagnetic Spectrum Band in a table using arrays (multidimensional) and then display the results.
 		?>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>Electromagnetic Spectrum (Arrays)</title>
+        <title>Electromagnetic Spectrum (Multidimensional Arrays)</title>
     </head>
         
     <body>
@@ -36,15 +36,16 @@
 			$strLast = "";
 			
 			// Initialize arrays
-			$Rows = Array();
-			$Waves = Array();
-			$Bands = Array();
+			$emsArray = Array();
 			
 			// Row counter
 			$Row = 1;
 			
 			// Fill the table with all the values for the electromagnetic spectrum
 			for ($i=3; $i>=-12; $i--):
+				$emsArray[$Row][0] = $Row;
+				$emsArray[$Row][1] = "10<sup>$i</sup>";
+				
 				if($i >= $Radio){
 					// Radio
 					$strOutput =  "Radio";
@@ -78,19 +79,21 @@
 				$Rows[$Row] = $Row;
 				$Waves[$Row] = $i;
 				if ($strLast <> $strOutput) {
-					$Bands[$Row] = $strOutput;
+					$emsArray[$Row][2] = $strOutput;
 					$strLast = $strOutput;
 				}
 				else {
 					// If it is the same Band that last row, do not output it
-					$Bands[$Row] = "^";
+					$emsArray[$Row][2] = "^";
 				}
 				
 				$Row++;
 			endfor;
 			
 			for ($i=1; $i<=Count($Rows); $i++):
-				echo "<tr><td>$Rows[$i]</td><td><center>10<sup>$Waves[$i]</sup></center></td><th><center>$Bands[$i]</center></th></tr>";
+				echo "<tr><td>".$emsArray[$i][0]."</td>".
+				     "<td><center>".$emsArray[$i][1]."</center></td>".
+					 "<th><center>".$emsArray[$i][2]."</center></th></tr>";
 			endfor;
 			
 		?>
