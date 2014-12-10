@@ -2,11 +2,11 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Untitled Document</title>
+	<title>GET Home Page</title>
 </head>
 
 <body>
-	<h1>Gas Tracker</h1>
+	<h1>Gas Expenses Tracker</h1>
 	<h2>This will be the home page.</h2>
 
 	<?php

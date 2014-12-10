@@ -1,6 +1,6 @@
 	</div>
     <div id="footer">
-    	<p>&copy; 2014 Jaime Montes de Oca</p>
+    	<p>&copy; 2014 Riverside City College</p>
    	</div>
 </body>
 </html>
