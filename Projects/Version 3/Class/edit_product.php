@@ -88,18 +88,17 @@
 	$r = @mysqli_query ($dbc, $q);
 
 	if (mysqli_num_rows($r) == 1) { // Valid product ID, show the form.
-
 		// Get the product's information:
 		$row = mysqli_fetch_array ($r, MYSQLI_NUM);
 		
 		// Create the form:
 		echo '<form action="edit_product.php" method="post">
-	<p>Code: <input type="text" name="code" size="15" maxlength="15" value="' . $row[0] . '" /></p>
-	<p>Description: <input type="text" name="description" size="100" maxlength="30" value="' . $row[1] . '" /></p>
-	<p>Price: <input type="text" name="price" size="20" maxlength="60" value="' . $row[2] . '"  /> </p>
-	<p><input type="submit" name="submit" value="Submit" /></p>
-	<input type="hidden" name="id" value="' . $id . '" />
-	</form>';
+			<p>Code: <input type="text" name="code" size="15" maxlength="15" value="' . $row[0] . '" /></p>
+			<p>Description: <input type="text" name="description" size="100" maxlength="30" value="' . $row[1] . '" /></p>
+			<p>Price: <input type="text" name="price" size="20" maxlength="60" value="' . $row[2] . '"  /> </p>
+			<p><input type="submit" name="submit" value="Submit" /></p>
+			<input type="hidden" name="id" value="' . $id . '" />
+			</form>';
 
 	} else { // Not a valid user ID.
 		echo '<p class="error">This page has been accessed in error.</p>';

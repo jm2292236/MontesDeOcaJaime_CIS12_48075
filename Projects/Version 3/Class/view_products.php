@@ -46,6 +46,9 @@
 		case 'desc':
 			$order_by = 'description ASC';
 			break;
+		case 'price':
+			$order_by = 'price ASC';
+			break;
 		default:
 			$order_by = 'code ASC';
 			$sort = 'cd';
@@ -63,24 +66,22 @@
 			<td align="left"><b>Delete</b></td>
 			<td align="left"><b><a href="view_products.php?sort=cd">Code</a></b></td>
 			<td align="left"><b><a href="view_products.php?sort=desc">Description</a></b></td>
-			<td align="right"><b><a href="view_products.php?sort=rd">Price</a></b></td>
-		</tr>
-	';
+			<td align="right"><b><a href="view_products.php?sort=price">Price</a></b></td>
+		</tr>';
 
-	// Fetch and print all the records....
-	$bg = '#eeeeee'; 
-	while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
-		$bg = ($bg=='#eeeeee' ? '#ffffff' : '#eeeeee');
+		// Fetch and print all the records....
+		$bg = '#eeeeee'; 
+		while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
+			$bg = ($bg=='#eeeeee' ? '#ffffff' : '#eeeeee');
 			echo '<tr bgcolor="' . $bg . '">
-			<td align="left"><a href="edit_product.php?id=' . $row['product_id'] . '">Edit</a></td>
-			<td align="left"><a href="delete_product.php?id=' . $row['product_id'] . '">Delete</a></td>
-			<td align="left">' . $row['code'] . '</td>
-			<td align="left">' . $row['description'] . '</td>
-			<td align="right">' . $row['price'] . '</td>
-		</tr>
-		';
-	} // End of WHILE loop.
-
+					<td align="left"><a href="edit_product.php?id=' . $row['product_id'] . '">Edit</a></td>
+					<td align="left"><a href="delete_product.php?id=' . $row['product_id'] . '">Delete</a></td>
+					<td align="left">' . $row['code'] . '</td>
+					<td align="left">' . $row['description'] . '</td>
+					<td align="right">' . $row['price'] . '</td>
+				</tr>
+			';
+		} // End of WHILE loop.
 	echo '</table>';
 	mysqli_free_result ($r);
 	mysqli_close($dbc);
